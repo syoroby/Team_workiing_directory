@@ -1,0 +1,44 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+Hello
+Hi Hello
+Hi Hello Hi Hello
+World
+=======
+=======
+a=["떴다 떴다 비행기",
+   "나비야 나비야",
+   "날아라 날아라",
+   "이리 날아 오너라",
+   "높이 높이 날아라",
+   "노랑 나비, 흰 나비",
+   "우리 비행기",
+   "춤을 추며 오너라"]
+
+b=[]
+c=[]
+for i in range(len(a)):
+        if i % 2 == 0 :
+            b.append(a[i])
+        else :
+            c.append(a[i])
+
+print("비행기 = ", b)
+print("나비야 = ", c)
+=======
+<<<<<<< HEAD
+
+=======
+Thanks for reading our works
+1. ---
+2. ----
+3. --
+>>>>>>> cf3671f5f3c99a9c162f0e065a8f45cb46a6415a
+
+>>>>>>> origin/master
+Thanks for reading our works
+1. ---
+2. ----
+3. --
+4.----
+>>>>>>> origin/master
