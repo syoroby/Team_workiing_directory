@@ -1,14 +1,28 @@
 ##피타고라스 공식##
 import math
 
-print("[[빗변의 길이 구하기]]")
+print("[[삼각형 변의 길이 구하기]]")
 
-x=float(input("x값 입력:"))
-y=float(input("y값 입력:"))
+v1 = input("빗변의 길이를 알고 있나요? (Y/N) >> ")
 
-z=(x*x)+(y*y)
+if v1 == "Y" or v1 == "y":
+    x = float(input("빗변의 길이를 입력하세요 >> "))
+    y = float(input("나머지 한 변의 길이를 입력하세요 >> "))
 
-print("z변의 길이는 ->",math.sqrt(z))  #빗변의 길이 출력
+    z = (x*x) - (y*y)
+
+    print("나머지 변의 길이는 %.3f입니다."%math.sqrt(z))
+
+elif v1 == "N" or v1 == "n":
+    x=float(input("밑변의 길이를 입력하세요 >> "))
+    y=float(input("높이를 입력하세요 >> "))x
+
+    z=(x*x)+(y*y)
+
+    print("빗변의 길이는 %.3f입니다."%math.sqrt(z))  #빗변의 길이 출력
+
+else :
+    print("잘못된 입력입니다.")
 
 ##피타고라스 삼각_리스트 활용##
 print("[[피타고라스 정리를 만족하는 조합]]")
