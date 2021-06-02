@@ -15,7 +15,7 @@ if v1 == "Y" or v1 == "y":
 
 elif v1 == "N" or v1 == "n":
     x=float(input("밑변의 길이를 입력하세요 >> "))
-    y=float(input("높이를 입력하세요 >> "))x
+    y=float(input("높이를 입력하세요 >> "))
 
     z=(x*x)+(y*y)
 
