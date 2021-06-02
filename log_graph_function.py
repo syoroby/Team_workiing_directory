@@ -18,8 +18,14 @@ def xrange(start, final, interval): # x값 범위 입력받아 저장
     return numbers 
 
 def graph_log(a, b, c, base, xmin, xmax): 
+    if a >= 0:
+        if 0 - b >= xmin:
+            xmin = 0 - b + 0.1
+    elif a < 0:
+        if 0 - b <= xmax:
+            xmax = 0 - b - 0.1
     x = xrange(xmin, xmax, 0.01) 
-    y = [] 
+    y = []
     for t in x: 
         y.append(a * math.log(t + b, base) + c) 
     draw_graph(x, y)
