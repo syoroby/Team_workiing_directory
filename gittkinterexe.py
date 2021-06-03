@@ -44,21 +44,21 @@ b3= Button(window, text = "지수 함수 그래프",
            bg = '#b4dede',
            relief = SOLID)
 
-b4= Button(window, text = "연습문제",
+b4= Button(window, text = "로그 함수 그래프",
            font = ("맑은 고딕", "10", 'bold'),
            fg = "#087666",
            width = 20, height = 2,
            bg = '#b4dede',
            relief = SOLID)
 
-b5= Button(window, text = "로그 함수 그래프",
+b5= Button(window, text = "두 점 사이의 거리",
            font = ("맑은 고딕", "10", 'bold'),
            fg = "#087666",
            width = 20, height = 2,
            bg = '#b4dede',
            relief = SOLID)
 
-b6= Button(window, text = "두 점 사이의 거리",
+b6= Button(window, text = "연습문제",
            font = ("맑은 고딕", "10", 'bold'),
            fg = "#087666",
            width = 20, height = 2,
