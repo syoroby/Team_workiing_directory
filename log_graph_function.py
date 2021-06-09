@@ -31,12 +31,23 @@ def graph_log(a, b, c, base, xmin, xmax):
     draw_graph(x, y)
     
 print("방정식을 'y = alog(x+b)+c'처럼 정리해주세요.")
-a = float(input('a를 입력해주세요: ')) 
-base = float(input('로그의 밑을 입력해주세요: '))
+a = float(input('a를 입력해주세요: '))    
+while True:
+    base = float(input('로그의 밑을 입력해주세요: '))
+    if base <= 0:
+        print('로그의 밑은 0보다 커야합니다.')
+    elif base == 1:
+        print('로그의 밑은 1이 될 수 없습니다.')
+    else:
+        break
 b = float(input('b를 입력해주세요: ')) 
 c = float(input('c를 입력해주세요: '))
 xmin = float(input('정의역의 최소값을 입력하세요 : '))       # x값의 범위를 입력받을 수 있도록 수정
 xmax = float(input('정의역의 최대값을 입력하세요 : '))
+if xmin > xmax: #x값의 최소값이 x의 최대값보다 클 때, 두 값을 바꿈
+    xstore = xmax
+    xmax = xmin
+    xmin = xstore
 
 print('y = {}log{}(x+{})+{}의 그래프를 출력하겠습니다.'.format(a,base,b,c))
 graph_log(a, b, c,  base, xmin, xmax)
