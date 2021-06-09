@@ -1,7 +1,209 @@
 from tkinter import *
 import point
 
-class Button5(Toplevel):
+class btn_1(Toplevel):
+        def __init__(self):
+                Toplevel.__init__(self)
+                self.configure(background='white')
+                self.geometry('300x450')
+
+                self._frame = None
+                self.switch_frame(StartPage)
+                
+        def switch_frame(self, frame_class):
+            new_frame = frame_class(self)
+            if self._frame is not None:
+                self._frame.destroy()
+            self._frame = new_frame
+            self._frame.pack()
+
+class StartPage(Frame):
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        Frame.configure(self,bg='white')
+        Label(self, text="함수를 선택하세요",
+                              font = ("맑은 고딕", "21", 'bold'),
+                              height=2,
+                              foreground = '#087666',
+                              background = 'white').pack(side="top", fill="x", pady=5)
+        Button(self, text="1차함수",
+                  command=lambda: master.switch_frame(PageOne)).pack(pady=5)
+        Button(self, text="2차함수",
+                  command=lambda: master.switch_frame(PageTwo)).pack(pady=5)
+        Button(self, text="3차함수",
+                  command=lambda: master.switch_frame(PageThree)).pack(pady=5)
+
+class PageOne(Frame):
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        Frame.configure(self,bg='white')
+        Label(self, text="1 차 함 수",
+                              font = ("맑은 고딕", "21", 'bold'),
+                              foreground = '#087666',
+                              background = 'white').pack(side="top", fill="x", pady=5)
+        Label(self, text='y = ax + b',
+                              font = ("맑은 고딕", "16", 'bold'),
+                                foreground = '#31C9B3',
+                                background = 'white').pack(fill='x')
+        
+        f1 = Frame(self, bg = 'white')
+        f1.pack()        
+       
+        Label(f1, text='a =', background = 'white').grid(row = 0, column= 0, pady=5)
+        Label(f1, text='b =', background = 'white').grid(row = 1, column = 0, pady=5)
+        
+        self.entryValue1 = StringVar()
+        self.entry1 = Entry(f1, textvariable = self.entryValue1)
+
+        self.entryValue2 = StringVar()
+        self.entry2 = Entry(f1, textvariable = self.entryValue2)
+
+        self.entry1.grid(row = 0, column = 1)
+        self.entry2.grid(row = 1, column = 1)
+        
+        f2 = Frame(self, bg = '#b4dede')
+        f2.pack()
+
+        Label(f2, text='정의역의 범위', background = '#b4dede').grid(row = 0, column= 1, pady=3)
+        
+        Label(f2, text='최소', background = '#b4dede').grid(row = 1, column= 0, pady=5)
+        Label(f2, text='최대', background = '#b4dede').grid(row = 2, column = 0, pady=5)
+        
+        self.entryValue3 = StringVar()
+        self.entry3 = Entry(f2, textvariable = self.entryValue3)
+
+        self.entryValue4 = StringVar()
+        self.entry4 = Entry(f2, textvariable = self.entryValue4)
+
+        self.entry3.grid(row = 1, column = 1)
+        self.entry4.grid(row = 2, column = 1)
+
+        btn = Button(self, text = "그래프 출력")
+        btn.pack(pady=5)
+
+        Button(self, text="이전화면으로 돌아가기",
+                  command=lambda: master.switch_frame(StartPage)).pack(pady=5)
+
+
+class PageTwo(Frame):
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        Frame.configure(self,bg='white')
+        Label(self, text="2 차 함 수",
+                              font = ("맑은 고딕", "21", 'bold'),
+                              foreground = '#087666',
+                              background = 'white').pack(side="top", fill="x", pady=5)
+        Label(self, text='y = ax²+ bx + c',
+                              font = ("맑은 고딕", "16", 'bold'),
+                                foreground = '#31C9B3',
+                                background = 'white').pack(fill='x')
+        
+        f1 = Frame(self, bg = 'white')
+        f1.pack()        
+       
+        Label(f1, text='a =', background = 'white').grid(row = 0, column= 0, pady=5)
+        Label(f1, text='b =', background = 'white').grid(row = 1, column = 0, pady=5)
+        Label(f1, text='c =', background = 'white').grid(row = 2, column = 0, pady=5)
+        
+        self.entryValue1 = StringVar()
+        self.entry1 = Entry(f1, textvariable = self.entryValue1)
+
+        self.entryValue2 = StringVar()
+        self.entry2 = Entry(f1, textvariable = self.entryValue2)
+        
+        self.entryValue3 = StringVar()
+        self.entry3 = Entry(f1, textvariable = self.entryValue3)
+
+        self.entry1.grid(row = 0, column = 1)
+        self.entry2.grid(row = 1, column = 1)
+        self.entry3.grid(row = 2, column = 1)
+        
+        f2 = Frame(self, bg = '#b4dede')
+        f2.pack()
+
+        Label(f2, text='정의역의 범위', background = '#b4dede').grid(row = 0, column= 1, pady=3)
+        
+        Label(f2, text='최소', background = '#b4dede').grid(row = 1, column= 0, pady=5)
+        Label(f2, text='최대', background = '#b4dede').grid(row = 2, column = 0, pady=5)
+        
+        self.entryValue4 = StringVar()
+        self.entry4 = Entry(f2, textvariable = self.entryValue4)
+
+        self.entryValue5 = StringVar()
+        self.entry5 = Entry(f2, textvariable = self.entryValue5)
+
+        self.entry4.grid(row = 1, column = 1)
+        self.entry5.grid(row = 2, column = 1)
+
+        btn = Button(self, text = "그래프 출력")
+        btn.pack(pady=5)
+        
+        Button(self, text="이전화면으로 돌아가기",
+                  command=lambda: master.switch_frame(StartPage)).pack()
+                  
+class PageThree(Frame):
+    def __init__(self, master):
+        Frame.__init__(self, master)
+        Frame.configure(self,bg='white')
+        Label(self, text="3 차 함 수",
+                              font = ("맑은 고딕", "21", 'bold'),
+                              foreground = '#087666',
+                              background = 'white').pack(side="top", fill="x", pady=5)
+                              
+        Label(self, text='y = ax³+ bx²+ cx + d',
+                              font = ("맑은 고딕", "16", 'bold'),
+                                foreground = '#31C9B3',
+                                background = 'white').pack(fill='x')
+        
+        f1 = Frame(self, bg = 'white')
+        f1.pack()        
+       
+        Label(f1, text='a =', background = 'white').grid(row = 0, column= 0, pady=5)
+        Label(f1, text='b =', background = 'white').grid(row = 1, column = 0, pady=5)
+        Label(f1, text='c =', background = 'white').grid(row = 2, column = 0, pady=5)
+        Label(f1, text='d =', background = 'white').grid(row = 3, column = 0, pady=5)
+        
+        self.entryValue1 = StringVar()
+        self.entry1 = Entry(f1, textvariable = self.entryValue1)
+
+        self.entryValue2 = StringVar()
+        self.entry2 = Entry(f1, textvariable = self.entryValue2)
+        
+        self.entryValue3 = StringVar()
+        self.entry3 = Entry(f1, textvariable = self.entryValue3)
+        
+        self.entryValue4 = StringVar()
+        self.entry4 = Entry(f1, textvariable = self.entryValue4)
+
+        self.entry1.grid(row = 0, column = 1)
+        self.entry2.grid(row = 1, column = 1)
+        self.entry3.grid(row = 2, column = 1)
+        self.entry4.grid(row = 3, column = 1)
+        
+        f2 = Frame(self, bg = '#b4dede')
+        f2.pack()
+
+        Label(f2, text='정의역의 범위', background = '#b4dede').grid(row = 0, column= 1, pady=3)
+        
+        Label(f2, text='최소', background = '#b4dede').grid(row = 1, column= 0, pady=5)
+        Label(f2, text='최대', background = '#b4dede').grid(row = 2, column = 0, pady=5)
+        
+        self.entryValue5 = StringVar()
+        self.entry5 = Entry(f2, textvariable = self.entryValue5)
+
+        self.entryValue6 = StringVar()
+        self.entry6 = Entry(f2, textvariable = self.entryValue6)
+
+        self.entry5.grid(row = 1, column = 1)
+        self.entry6.grid(row = 2, column = 1)
+
+        btn = Button(self, text = "그래프 출력")
+        btn.pack(pady=5)
+        
+        Button(self, text="이전화면으로 돌아가기",
+                  command=lambda: master.switch_frame(StartPage)).pack()        
+
+class btn_5(Toplevel):
         def __init__(self):
                 Toplevel.__init__(self)
 
@@ -88,7 +290,8 @@ class MainPage(Tk):
                         fg = "#087666",
                         width = 20, height = 2,
                         bg = '#b4dede',
-                        relief = SOLID)
+                        relief = SOLID,
+                        command = btn_1)
 
                 b2= Button(self, text = "피타고라스의 수",
                         font = ("맑은 고딕", "10", 'bold'),
@@ -117,7 +320,7 @@ class MainPage(Tk):
                         width = 20, height = 2,
                         bg = '#b4dede',
                         relief = SOLID,
-                        command = Button5)
+                        command = btn_5)
 
                 b6= Button(self, text = "연습문제",
                         font = ("맑은 고딕", "10", 'bold'),
@@ -136,3 +339,6 @@ class MainPage(Tk):
 
 window = MainPage()
 window.mainloop()
+
+#https://codingcoding.tistory.com/1045
+#https://www.delftstack.com/ko/howto/python-tkinter/how-to-switch-frames-in-tkinter/
