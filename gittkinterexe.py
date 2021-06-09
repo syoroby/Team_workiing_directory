@@ -1,7 +1,7 @@
 from tkinter import *
 import point
 
-class Button5(Toplevel):
+class btn_5(Toplevel):
         def __init__(self):
                 Toplevel.__init__(self)
 
@@ -117,7 +117,7 @@ class MainPage(Tk):
                         width = 20, height = 2,
                         bg = '#b4dede',
                         relief = SOLID,
-                        command = Button5)
+                        command = btn_5)
 
                 b6= Button(self, text = "연습문제",
                         font = ("맑은 고딕", "10", 'bold'),
