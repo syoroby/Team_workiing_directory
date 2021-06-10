@@ -26,7 +26,7 @@ class btn_4(Toplevel):
                              background = 'white')
                 txt2 = Label(f1, text = '로그의 밑을 입력해주세요: ',
                              background = 'white')
-                txt3 = Label(f1, text = '로그의 밑을 입력해주세요: ',
+                txt3 = Label(f1, text = 'a를 입력해주세요: ',
                              background = 'white')
                 txt4 = Label(f1, text = 'b를 입력해주세요: ',
                              background = 'white')
@@ -76,7 +76,7 @@ class btn_4(Toplevel):
                 self.resultValue = StringVar()
                 self.result = Label(self, bg = 'white',
                                     textvariable = self.resultValue)
-                self.resurt.pack()
+                self.result.pack()
                 
                 
         def draw_graph(self, x, y):
@@ -111,8 +111,8 @@ class btn_4(Toplevel):
                 
                 
         def draw(self):
-            a = float(self.entryValue1.get())
-            base = float(self.entryValue2.get())
+            base = float(self.entryValue1.get())
+            a = float(self.entryValue2.get())
             b = float(self.entryValue3.get())
             c = float(self.entryValue4.get())
             xmin = float(self.entryValue5.get())
