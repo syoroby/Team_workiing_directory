@@ -17,6 +17,7 @@
 		<li>2. </li>
 		<li></li>
 		<li></li>
+		</ul>
 		<h2>에러발생 요인</h2>
         <ul>
 		<li>파이썬(idle) 권장사용</li>
@@ -25,6 +26,7 @@
 		<li></li>
 		<li></li>
 		<h2>팀원</h2>
+		</ul>
         <ul>
 		<li>syoroby 박진우</li>
 		<li>jjPark9 박정진</li>
