@@ -70,7 +70,7 @@ class btn_4(Toplevel):
                 self.entry5.grid(row = 5, column = 1)
                 self.entry6.grid(row = 6, column = 1)
                 
-                btn = Button(self, text = '계산', command = self.draw)
+                btn = Button(self, text = '그래프', command = self.draw)
                 btn.pack()
                 
                 self.resultValue = StringVar()
