@@ -2,7 +2,97 @@ from tkinter import *
 import point
 from pandas import DataFrame
 import matplotlib.pyplot as plt
-import math
+import numpy as np
+
+class btn_3(Toplevel):
+        def __init__(self):
+                Toplevel.__init__(self)
+                
+                self.initialize()
+                
+        def initialize(self):
+                self.configure(background='white')
+                title = Label(self, text = '지수 함수 그래프',
+                              font = ('맑은 고딕', '21', 'bold'),
+                              height = 2,
+                              foreground = '#087666',
+                              background = 'white')
+                title.pack()
+                
+                f1 = Frame(self, bg = 'white')
+                f1.pack()
+                
+                txt1 = Label(f1, text = 'x좌표의 최소값을 입력해주세요: ',
+                             background = 'white')
+                txt2 = Label(f1, text = 'x좌표의 최대값을 입력해주세요: ',
+                             background = 'white')
+                txt3 = Label(f1, text = '계수를 입력해주세요: ',
+                             background = 'white')
+                txt4 = Label(f1, text = '밑를 입력해주세요: ',
+                             background = 'white')
+                
+                txt1.grid(row = 0, column = 0)
+                txt2.grid(row = 1, column = 0)
+                txt3.grid(row = 2, column = 0)
+                txt4.grid(row = 3, column = 0)
+                
+                self.entryValue1 = StringVar()
+                self.entry1 = Entry(f1, textvariable = self.entryValue1)
+                
+                self.entryValue2 = StringVar()
+                self.entry2 = Entry(f1, textvariable = self.entryValue2)
+                
+                self.entryValue3 = StringVar()
+                self.entry3 = Entry(f1, textvariable = self.entryValue3)
+                
+                self.entryValue4 = StringVar()
+                self.entry4 = Entry(f1, textvariable = self.entryValue4)
+                
+                self.entry1.grid(row = 0, column = 1)
+                self.entry2.grid(row = 1, column = 1)
+                self.entry3.grid(row = 2, column = 1)
+                self.entry4.grid(row = 3, column = 1)
+                
+                btn = Button(self, text = '그래프', command = self.draw)
+                btn.pack()
+                
+                self.resultValue = StringVar()
+                self.result = Label(self, bg = 'white',
+                                    textvariable = self.resultValue)
+                self.result.pack()
+                
+        def draw_graph(self, x, y):
+            plt.axvline(x=0, color = 'black')   # x, y축 추가
+            plt.axhline(y=0, color = 'black')
+    
+            plt.plot(x, y)
+            plt.grid(color='0.8')
+            plt.show()
+    
+    
+        def xrange(self, start, final, interval): # x값 범위 입력받아 저장
+            numbers = [] 
+            while start < final: 
+                numbers.append(start) 
+                start += interval 
+            return numbers 
+
+
+        def graph_log(self, front, under, xmin, xmax):
+            x = self.xrange(xmin, xmax, 0.01) 
+            y = []
+            for t in x: 
+                y.append(front*under**t) 
+            self.draw_graph(x, y)
+            
+        def draw(self):
+            xmin = float(self.entryValue1.get())
+            xmax = float(self.entryValue2.get())
+            front = float(self.entryValue3.get())
+            under = float(self.entryValue4.get())
+                
+            self.graph_log(front,under,xmin,xmax)
+            
 
 class btn_4(Toplevel):
         def __init__(self):
@@ -222,7 +312,8 @@ class MainPage(Tk):
                         fg = "#087666",
                         width = 20, height = 2,
                         bg = '#b4dede',
-                        relief = SOLID)
+                        relief = SOLID,
+                        command = btn_3)
 
                 b4= Button(self, text = "로그 함수 그래프",
                         font = ("맑은 고딕", "10", 'bold'),
