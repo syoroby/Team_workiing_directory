@@ -10,6 +10,20 @@
 		<li>두 점 사이의 거리</li>
 		<li>연습문제</li>
 		</ul>
+		<h2>프로그램 사용방법</h2>
+        <ul>
+		<li>1. 파이썬 프로그램(idle)을 통해 실행</li>
+		<li>1-1. pandas가 안깔려 있다면 cmd에서 pip install pandas를 통해 설치할 것</li>
+		<li>2. </li>
+		<li></li>
+		<li></li>
+		<h2>에러발생 요인</h2>
+        <ul>
+		<li>파이썬(idle) 권장사용</li>
+		<li>matplotlib.pyplot실행 에러 시 cpu성능 확인</li>
+		<li></li>
+		<li></li>
+		<li></li>
 		<h2>팀원</h2>
         <ul>
 		<li>syoroby 박진우</li>
