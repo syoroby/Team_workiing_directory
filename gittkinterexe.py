@@ -1,5 +1,6 @@
 from tkinter import *
 import point
+import graph_function
 
 class btn_1(Toplevel):
         def __init__(self):
@@ -78,13 +79,20 @@ class PageOne(Frame):
         self.entry3.grid(row = 1, column = 1)
         self.entry4.grid(row = 2, column = 1)
 
-        btn = Button(self, text = "그래프 출력")
+        btn = Button(self, text = "그래프 출력", command = self.draw_g1)
         btn.pack(pady=5)
 
         Button(self, text="이전화면으로 돌아가기",
                   command=lambda: master.switch_frame(StartPage)).pack(pady=5)
-
-
+                  
+    def draw_g1(self):
+        a = float(self.entryValue1.get())
+        b = float(self.entryValue2.get())
+        xmin = float(self.entryValue3.get())
+        xmax = float(self.entryValue4.get())
+        
+        graph_function.graph1(a, b, xmin, xmax)   
+    
 class PageTwo(Frame):
     def __init__(self, master):
         Frame.__init__(self, master)
@@ -135,11 +143,20 @@ class PageTwo(Frame):
         self.entry4.grid(row = 1, column = 1)
         self.entry5.grid(row = 2, column = 1)
 
-        btn = Button(self, text = "그래프 출력")
+        btn = Button(self, text = "그래프 출력", command = self.draw_g2)
         btn.pack(pady=5)
         
         Button(self, text="이전화면으로 돌아가기",
                   command=lambda: master.switch_frame(StartPage)).pack()
+                  
+    def draw_g2(self):
+        a = float(self.entryValue1.get())
+        b = float(self.entryValue2.get())
+        c = float(self.entryValue3.get())
+        xmin = float(self.entryValue4.get())
+        xmax = float(self.entryValue5.get())
+        
+        graph_function.graph2(a, b, c, xmin, xmax)
                   
 class PageThree(Frame):
     def __init__(self, master):
@@ -197,11 +214,21 @@ class PageThree(Frame):
         self.entry5.grid(row = 1, column = 1)
         self.entry6.grid(row = 2, column = 1)
 
-        btn = Button(self, text = "그래프 출력")
+        btn = Button(self, text = "그래프 출력", command = self.draw_g3)
         btn.pack(pady=5)
         
         Button(self, text="이전화면으로 돌아가기",
-                  command=lambda: master.switch_frame(StartPage)).pack()        
+                  command=lambda: master.switch_frame(StartPage)).pack()
+                  
+    def draw_g3(self):
+        a = float(self.entryValue1.get())
+        b = float(self.entryValue2.get())
+        c = float(self.entryValue3.get())
+        d = float(self.entryValue4.get())
+        xmin = float(self.entryValue5.get())
+        xmax = float(self.entryValue6.get())
+        
+        graph_function.graph3(a, b, c, d, xmin, xmax)                  
 
 class btn_5(Toplevel):
         def __init__(self):
