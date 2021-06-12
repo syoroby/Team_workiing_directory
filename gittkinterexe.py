@@ -1,9 +1,10 @@
 from tkinter import *
-import point
+import point            #point파일(두 점 사이의 거리 구하기) 임포트
 from pandas import DataFrame
 import matplotlib.pyplot as plt
+import graph_function           # graph_function파일(지수 함수 그래프)임포트
 import numpy as np
-import graph_function
+
 
 class btn_1(Toplevel):          #n차 함수 그래프
         def __init__(self):
@@ -14,7 +15,7 @@ class btn_1(Toplevel):          #n차 함수 그래프
                 self._frame = None
                 self.switch_frame(StartPage)
                 
-        def switch_frame(self, frame_class):
+        def switch_frame(self, frame_class):    
             new_frame = frame_class(self)
             if self._frame is not None:
                 self._frame.destroy()
@@ -233,7 +234,7 @@ class PageThree(Frame):         #3차 함수 그래프
         
         graph_function.graph3(a, b, c, d, xmin, xmax)                  
 
-class btn_2(Toplevel):
+class btn_2(Toplevel):          #빗변의 길이
         def __init__(self):
                 Toplevel.__init__(self)
                 
@@ -489,7 +490,6 @@ class btn_4(Toplevel):
             xmax = float(self.entryValue6.get())
                 
             self.graph_log(a,b,c,base,xmin,xmax)
-                
 
 
 
