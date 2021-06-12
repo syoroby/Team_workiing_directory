@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import graph_function
 
-class btn_1(Toplevel):
+class btn_1(Toplevel):          #n차 함수 그래프
         def __init__(self):
                 Toplevel.__init__(self)
                 self.configure(background='white')
@@ -21,7 +21,7 @@ class btn_1(Toplevel):
             self._frame = new_frame
             self._frame.pack()
 
-class StartPage(Frame):
+class StartPage(Frame):         #n차 함수 그래프 선택 화면
     def __init__(self, master):
         Frame.__init__(self, master)
         Frame.configure(self,bg='white')
@@ -37,7 +37,7 @@ class StartPage(Frame):
         Button(self, text="3차함수",
                   command=lambda: master.switch_frame(PageThree)).pack(pady=5)
 
-class PageOne(Frame):
+class PageOne(Frame):           #1차 함수 그래프
     def __init__(self, master):
         Frame.__init__(self, master)
         Frame.configure(self,bg='white')
@@ -96,7 +96,7 @@ class PageOne(Frame):
         
         graph_function.graph1(a, b, xmin, xmax)   
     
-class PageTwo(Frame):
+class PageTwo(Frame):           #2차 함수 그래프
     def __init__(self, master):
         Frame.__init__(self, master)
         Frame.configure(self,bg='white')
@@ -161,7 +161,7 @@ class PageTwo(Frame):
         
         graph_function.graph2(a, b, c, xmin, xmax)
                   
-class PageThree(Frame):
+class PageThree(Frame):         #3차 함수 그래프
     def __init__(self, master):
         Frame.__init__(self, master)
         Frame.configure(self,bg='white')
@@ -241,7 +241,7 @@ class btn_2(Toplevel):
                 
         def initialize(self):
                 self.configure(background='white')
-                title = Label(self, text = '피타고라스의 수',
+                title = Label(self, text = '빗변의 길이',
                               font = ('맑은 고딕', '21', 'bold'),
                               height = 2,
                               foreground = '#087666',
@@ -268,7 +268,7 @@ class btn_2(Toplevel):
                 self.entry1.grid(row = 0, column = 1)
                 self.entry2.grid(row = 1, column = 1)
                 
-                btn = Button(self, text = '피타고라스 삼각', command = self.Calculate)
+                btn = Button(self, text = '결과', command = self.Calculate)
                 btn.pack()
                 
                 self.resultValue = StringVar()
@@ -281,10 +281,10 @@ class btn_2(Toplevel):
            b=float(self.entryValue2.get())
            c=(a*a)+(b*b) 
            
-           result = "변의 길이는 => " + str(c) 
+           result = "빗변의 길이는 => " + str(c) 
            self.resultValue.set(result)
            
-class btn_3(Toplevel):
+class btn_3(Toplevel):          #지수 함수 그래프
         def __init__(self):
                 Toplevel.__init__(self)
                 
@@ -341,8 +341,8 @@ class btn_3(Toplevel):
                                     textvariable = self.resultValue)
                 self.result.pack()
                 
-        def draw_graph(self, x, y):
-            plt.axvline(x=0, color = 'black')   # x, y축 추가
+        def draw_graph(self, x, y):     # x, y축 추가
+            plt.axvline(x=0, color = 'black')   
             plt.axhline(y=0, color = 'black')
     
             plt.plot(x, y)
@@ -493,7 +493,7 @@ class btn_4(Toplevel):
 
 
 
-class btn_5(Toplevel):
+class btn_5(Toplevel):          #두 점 사이의 거리
         def __init__(self):
                 Toplevel.__init__(self)
 
@@ -558,7 +558,7 @@ class MainPage(Tk):
                 self.initialize()
                 
                 
-        def initialize(self):                              
+        def initialize(self):           #프로그램 실행 시 첫 화면                              
                 lab1 = Label(self, text="M   A   T   H",
                         font = ("맑은 고딕", "21", 'bold'),
                         anchor = 's',
@@ -583,7 +583,7 @@ class MainPage(Tk):
                         relief = SOLID,
                         command = btn_1)
 
-                b2= Button(self, text = "피타고라스의 수",
+                b2= Button(self, text = "빗변의 길이",
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
                         width = 20, height = 2,
@@ -615,19 +615,12 @@ class MainPage(Tk):
                         relief = SOLID,
                         command = btn_5)
 
-                b6= Button(self, text = "연습문제",
-                        font = ("맑은 고딕", "10", 'bold'),
-                        fg = "#087666",
-                        width = 20, height = 2,
-                        bg = '#b4dede',
-                        relief = SOLID)
                    
                 b1.pack(padx=0, pady=5, side = TOP)
                 b2.pack(padx=0, pady=5, side = TOP)
                 b3.pack(padx=0, pady=5, side = TOP)
                 b4.pack(padx=0, pady=5, side = TOP)
                 b5.pack(padx=0, pady=5, side = TOP)
-                b6.pack(padx=0, pady=5, side = TOP) 
 
 
 window = MainPage()
