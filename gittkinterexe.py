@@ -233,7 +233,57 @@ class PageThree(Frame):
         
         graph_function.graph3(a, b, c, d, xmin, xmax)                  
 
+class btn_2(Toplevel):
+        def __init__(self):
+                Toplevel.__init__(self)
+                
+                self.initialize()
+                
+        def initialize(self):
+                self.configure(background='white')
+                title = Label(self, text = '피타고라스의 수',
+                              font = ('맑은 고딕', '21', 'bold'),
+                              height = 2,
+                              foreground = '#087666',
+                              background = 'white')
+                title.pack()
+                
+                f1 = Frame(self, bg = 'white')
+                f1.pack()
+                
+                txt1 = Label(f1, text = 'x값 입력: ',
+                             background = 'white')
+                txt2 = Label(f1, text = 'y값 입력: ',
+                             background = 'white')
 
+                txt1.grid(row = 0, column = 0)
+                txt2.grid(row = 1, column = 0)
+
+                self.entryValue1 = StringVar()
+                self.entry1 = Entry(f1, textvariable = self.entryValue1)
+                
+                self.entryValue2 = StringVar()
+                self.entry2 = Entry(f1, textvariable = self.entryValue2)
+                
+                self.entry1.grid(row = 0, column = 1)
+                self.entry2.grid(row = 1, column = 1)
+                
+                btn = Button(self, text = '피타고라스 삼각', command = self.Calculate)
+                btn.pack()
+                
+                self.resultValue = StringVar()
+                self.result = Label(self, bg = 'white',
+                                    textvariable = self.resultValue)
+                self.result.pack()
+            
+        def Calculate(self):
+           a=float(self.entryValue1.get())
+           b=float(self.entryValue2.get())
+           c=(a*a)+(b*b) 
+           
+           result = "변의 길이는 => " + str(c) 
+           self.resultValue.set(result)
+           
 class btn_3(Toplevel):
         def __init__(self):
                 Toplevel.__init__(self)
@@ -538,7 +588,8 @@ class MainPage(Tk):
                         fg = "#087666",
                         width = 20, height = 2,
                         bg = '#b4dede',
-                        relief = SOLID)
+                        relief = SOLID,
+                        command=btn_2)
 
                 b3= Button(self, text = "지수 함수 그래프",
                         font = ("맑은 고딕", "10", 'bold'),
@@ -581,6 +632,3 @@ class MainPage(Tk):
 
 window = MainPage()
 window.mainloop()
-
-#https://codingcoding.tistory.com/1045
-#https://www.delftstack.com/ko/howto/python-tkinter/how-to-switch-frames-in-tkinter/
