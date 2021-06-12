@@ -4,18 +4,18 @@
         <h2>프로그램 구현 내용</h2>
 		<ul>
 		<li>N차 함수 그래프(1,2,3차)</li>
+		<li>빗변의 길이</li>
 		<li>지수 함수 그래프</li>
 		<li>로그 함수 그래프</li>
-		<li>빗변의 길이</li>
 		<li>두 점 사이의 거리</li>
 		</ul>
 		<h2>프로그램 사용방법</h2>
         <ul>
 		<li>1. 파이썬 프로그램(idle)을 통해 실행</li>
 		<li>1-1. pandas가 안깔려 있다면 cmd에서 pip install pandas를 통해 설치할 것</li>
-		<li>2. </li>
-		<li></li>
-		<li></li>
+		<li>2. idle을 통해 'gittkinterexe.py'파일을 실행</li>
+		<li>3. 원하는 기능 선택</li>
+		<li>4. 데이터를 입력하여 결과를 실행</li>
 		</ul>
 		<h2>사용 시 주의사항</h2>
         <ul>
