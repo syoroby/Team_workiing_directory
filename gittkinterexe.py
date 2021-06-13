@@ -317,7 +317,7 @@ class btn_2(Toplevel):          #빗변의 길이
                 self.entry1.grid(row = 0, column = 1)
                 self.entry2.grid(row = 1, column = 1)
                 
-                btn = Button(self, text = '계산',
+                btn = Button(self, text = '계  산',
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
                         width = 15,
@@ -327,6 +327,8 @@ class btn_2(Toplevel):          #빗변의 길이
                 
                 self.resultValue = StringVar()
                 self.result = Label(self, bg = 'white',
+                                    font = ("맑은 고딕", "10", 'bold'),
+                                    fg = "#087666",
                                     textvariable = self.resultValue)
                 self.result.pack()
             
@@ -349,7 +351,7 @@ class btn_3(Toplevel):          #지수 함수 그래프
                 self.geometry('300x350')
                 self.resizable(False, False)
                 
-                Label(self, text = '지수 함수',
+                Label(self, text = '지 수 함 수',
                               font = ('맑은 고딕', '21', 'bold'),
                               foreground = '#087666',
                               background = 'white').pack(side="top", fill="x", pady=5)
@@ -447,40 +449,52 @@ class btn_4(Toplevel):
                 
         def initialize(self):
                 self.configure(background='white')
-                title = Label(self, text = '로그 함수',
+                self.geometry('300x450')
+                self.resizable(False, False)
+                
+                title = Label(self, text = '로 그 함 수',
                               font = ('맑은 고딕', '21', 'bold'),
-                              height = 2,
                               foreground = '#087666',
                               background = 'white')
-                title.pack()
+                title.pack(side="top", fill="x", pady=5)
+
+                txt1 = Label(self, text = 'y = a〮log(x+b)+c',
+                              font = ("맑은 고딕", "16", 'bold'),
+                                foreground = '#31C9B3',
+                             background = 'white')
+                txt1.pack(fill='x')
 
                 Frame(self, bg = '#087666', width = 200, height = 3).pack(pady = 10)
                 
                 f1 = Frame(self, bg = 'white')
                 f1.pack(pady = 5)
                 
-                txt1 = Label(f1, text = '함수: y = alog(x+b)+c',
-                             background = 'white')
-                txt2 = Label(f1, text = '로그의 밑을 입력해주세요: ',
-                             background = 'white')
-                txt3 = Label(f1, text = 'a를 입력해주세요: ',
-                             background = 'white')
-                txt4 = Label(f1, text = 'b를 입력해주세요: ',
-                             background = 'white')
-                txt5 = Label(f1, text = 'c를 입력해주세요: ',
-                             background = 'white')
-                txt6 = Label(f1, text = '정의역의 최소값을 입력해주세요: ',
-                             background = 'white')
-                txt7 = Label(f1, text = '정의역의 최대값을 입력해주세요: ',
-                             background = 'white')
                 
-                txt1.grid(row = 0, column = 1, padx = 5, pady=5)
-                txt2.grid(row = 1, column = 0, padx = 5, pady=5)
-                txt3.grid(row = 2, column = 0, padx = 5, pady=5)
-                txt4.grid(row = 3, column = 0, padx = 5, pady=5)
-                txt5.grid(row = 4, column = 0, padx = 5, pady=5)
-                txt6.grid(row = 5, column = 0, padx = 5, pady=5)
-                txt7.grid(row = 6, column = 0, padx = 5, pady=5)
+                txt2 = Label(f1, text = '로그의 밑',
+                             background = 'white')
+                txt3 = Label(f1, text = 'a = ',
+                             background = 'white')
+                txt4 = Label(f1, text = 'b = ',
+                             background = 'white')
+                txt5 = Label(f1, text = 'c = ',
+                             background = 'white')
+
+                f2 = Frame(self, bg = '#b4dede')
+                f2.pack(pady = 5)
+                
+                Label(f2, text = '정의역의 범위', bg = '#b4dede').grid(row = 0, column= 1, pady=3)
+                txt6 = Label(f2, text = '최소',
+                             background = '#b4dede')
+                txt7 = Label(f2, text = '최대',
+                             background = '#b4dede')
+                
+                txt2.grid(row = 0, column = 0, padx = 5, pady=5)
+                txt3.grid(row = 1, column = 0, padx = 5, pady=5)
+                txt4.grid(row = 2, column = 0, padx = 5, pady=5)
+                txt5.grid(row = 3, column = 0, padx = 5, pady=5)
+                
+                txt6.grid(row = 1, column = 0, padx = 5, pady=5)
+                txt7.grid(row = 2, column = 0, padx = 5, pady=5)
                 
                 self.entryValue1 = StringVar()
                 self.entry1 = Entry(f1, width = 15, textvariable = self.entryValue1)
@@ -495,22 +509,21 @@ class btn_4(Toplevel):
                 self.entry4 = Entry(f1, width = 15, textvariable = self.entryValue4)
                 
                 self.entryValue5 = StringVar()
-                self.entry5 = Entry(f1, width = 15, textvariable = self.entryValue5)
+                self.entry5 = Entry(f2, width = 15, textvariable = self.entryValue5)
                 
                 self.entryValue6 = StringVar()
-                self.entry6 = Entry(f1, width = 15, textvariable = self.entryValue6)
+                self.entry6 = Entry(f2, width = 15, textvariable = self.entryValue6)
                 
-                self.entry1.grid(row = 1, column = 1)
-                self.entry2.grid(row = 2, column = 1)
-                self.entry3.grid(row = 3, column = 1)
-                self.entry4.grid(row = 4, column = 1)
-                self.entry5.grid(row = 5, column = 1)
-                self.entry6.grid(row = 6, column = 1)
+                self.entry1.grid(row = 0, column = 1)
+                self.entry2.grid(row = 1, column = 1)
+                self.entry3.grid(row = 2, column = 1)
+                self.entry4.grid(row = 3, column = 1)
+                self.entry5.grid(row = 1, column = 1, padx = 5)
+                self.entry6.grid(row = 2, column = 1)
                 
                 btn = Button(self, text = '그래프 출력',
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
-                        width = 15, height = 2,
                         bg = '#b4dede',
                         relief = SOLID, command = self.draw)
                 btn.pack(ipadx = 5, ipady = 5, pady=5)
@@ -563,7 +576,6 @@ class btn_4(Toplevel):
             self.graph_log(a,b,c,base,xmin,xmax)
 
 
-
 class btn_5(Toplevel):          #두 점 사이의 거리
         def __init__(self):
                 Toplevel.__init__(self)
@@ -572,6 +584,9 @@ class btn_5(Toplevel):          #두 점 사이의 거리
 
         def initialize(self):
                 self.configure(background='white')
+                self.geometry('300x350')
+                self.resizable(False, False)
+                
                 title = Label(self, text = "두 점 사이의 거리",
                               font = ("맑은 고딕", "21", 'bold'),
                               height=2,
@@ -604,16 +619,18 @@ class btn_5(Toplevel):          #두 점 사이의 거리
                 self.entry1.grid(row = 1, column = 1)
                 self.entry2.grid(row = 2, column = 1)
 
-                btn = Button(self, text = "계산",
+                btn = Button(self, text = "계  산",
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
-                        width = 15, height = 2,
+                        width = 15,
                         bg = '#b4dede',
                         relief = SOLID, command = self.Calculate)
-                btn.pack(ipadx = 5, ipady = 5, pady=5)
+                btn.pack(ipady = 5, pady=5)
 
                 self.resultValue = StringVar()
                 self.result = Label(self, bg = 'white',
+                                    font = ("맑은 고딕", "10", 'bold'),
+                                    fg = "#087666",
                                     textvariable = self.resultValue)
                 self.result.pack()
 
@@ -694,11 +711,11 @@ class MainPage(Tk):
                         command = btn_5)
 
                    
-                b1.pack(padx=0, pady=5, side = TOP)
-                b2.pack(padx=0, pady=5, side = TOP)
-                b3.pack(padx=0, pady=5, side = TOP)
-                b4.pack(padx=0, pady=5, side = TOP)
-                b5.pack(padx=0, pady=5, side = TOP)
+                b1.pack(padx=0, pady=10, side = TOP)
+                b2.pack(padx=0, pady=10, side = TOP)
+                b3.pack(padx=0, pady=10, side = TOP)
+                b4.pack(padx=0, pady=10, side = TOP)
+                b5.pack(padx=0, pady=10, side = TOP)
 
 
 window = MainPage()
