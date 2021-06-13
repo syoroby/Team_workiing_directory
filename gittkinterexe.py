@@ -1,6 +1,7 @@
 from tkinter import *
 import point            #point파일(두 점 사이의 거리 구하기) 임포트
 import matplotlib.pyplot as plt
+import math
 import graph_function           # graph_function파일(지수 함수 그래프)임포트
 import math
 
