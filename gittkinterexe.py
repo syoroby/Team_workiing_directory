@@ -9,6 +9,7 @@ class btn_1(Toplevel):          #n차 함수 그래프
                 Toplevel.__init__(self)
                 self.configure(background='white')
                 self.geometry('300x450')
+                self.resizable(False, False)
 
                 self._frame = None
                 self.switch_frame(StartPage)
@@ -285,19 +286,23 @@ class btn_2(Toplevel):          #빗변의 길이
                 
         def initialize(self):
                 self.configure(background='white')
+                self.geometry('300x250')
+                self.resizable(False, False)
+                
                 title = Label(self, text = '빗변의 길이',
                               font = ('맑은 고딕', '21', 'bold'),
-                              height = 2,
                               foreground = '#087666',
                               background = 'white')
-                title.pack()
+                title.pack(side="top", fill="x", pady=5)
+
+                Frame(self, bg = '#087666', width = 200, height = 3).pack(pady = 10)
                 
                 f1 = Frame(self, bg = 'white')
                 f1.pack(pady = 5)
                 
-                txt1 = Label(f1, text = 'x값 입력: ',
+                txt1 = Label(f1, text = '밑변',
                              background = 'white')
-                txt2 = Label(f1, text = 'y값 입력: ',
+                txt2 = Label(f1, text = '높이',
                              background = 'white')
 
                 txt1.grid(row = 0, column = 0, padx = 5, pady=5)
@@ -312,13 +317,13 @@ class btn_2(Toplevel):          #빗변의 길이
                 self.entry1.grid(row = 0, column = 1)
                 self.entry2.grid(row = 1, column = 1)
                 
-                btn = Button(self, text = '결과',
+                btn = Button(self, text = '계산',
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
-                        width = 15, height = 2,
+                        width = 15,
                         bg = '#b4dede',
                         relief = SOLID, command = self.Calculate)
-                btn.pack(ipadx = 5, ipady = 5, pady=5)
+                btn.pack(ipady = 5, pady=5)
                 
                 self.resultValue = StringVar()
                 self.result = Label(self, bg = 'white',
@@ -330,7 +335,7 @@ class btn_2(Toplevel):          #빗변의 길이
            b=float(self.entryValue2.get())
            c=(a*a)+(b*b) 
            
-           result = "빗변의 길이는 => " + str(c) 
+           result = "빗변의 길이는 %.2f 입니다"%c
            self.resultValue.set(result)
            
 class btn_3(Toplevel):          #지수 함수 그래프
@@ -341,35 +346,43 @@ class btn_3(Toplevel):          #지수 함수 그래프
                 
         def initialize(self):
                 self.configure(background='white')
-                title = Label(self, text = '지수 함수',
+                self.geometry('300x350')
+                self.resizable(False, False)
+                
+                Label(self, text = '지수 함수',
                               font = ('맑은 고딕', '21', 'bold'),
-                              height = 2,
                               foreground = '#087666',
-                              background = 'white')
-                title.pack()
+                              background = 'white').pack(side="top", fill="x", pady=5)
+
+                Frame(self, bg = '#087666', width = 200, height = 3).pack(pady = 10)
                 
                 f1 = Frame(self, bg = 'white')
                 f1.pack(pady = 5)
+
+                f2 = Frame(self, bg = '#b4dede')
+                f2.pack(pady = 5)
+
+                Label(f2, text = '정의역의 범위', bg = '#b4dede').grid(row = 0, column= 1, pady=3)
+                txt1 = Label(f2, text = '최소',
+                             background = '#b4dede')
+                txt2 = Label(f2, text = '최대',
+                             background = '#b4dede')
                 
-                txt1 = Label(f1, text = 'x좌표의 최소값을 입력해주세요: ',
+                txt3 = Label(f1, text = '계수',
                              background = 'white')
-                txt2 = Label(f1, text = 'x좌표의 최대값을 입력해주세요: ',
-                             background = 'white')
-                txt3 = Label(f1, text = '계수를 입력해주세요: ',
-                             background = 'white')
-                txt4 = Label(f1, text = '밑를 입력해주세요: ',
+                txt4 = Label(f1, text = '밑',
                              background = 'white')
                 
-                txt1.grid(row = 0, column = 0, padx = 5, pady=5)
-                txt2.grid(row = 1, column = 0, padx = 5, pady=5)
-                txt3.grid(row = 2, column = 0, padx = 5, pady=5)
-                txt4.grid(row = 3, column = 0, padx = 5, pady=5)
+                txt1.grid(row = 1, column = 0, padx = 5, pady=5)
+                txt2.grid(row = 2, column = 0, padx = 5, pady=5)
+                txt3.grid(row = 0, column = 0, padx = 5, pady=5)
+                txt4.grid(row = 1, column = 0, padx = 5, pady=5)
                 
                 self.entryValue1 = StringVar()
-                self.entry1 = Entry(f1, width = 15, textvariable = self.entryValue1)
+                self.entry1 = Entry(f2, width = 15, textvariable = self.entryValue1)
                 
                 self.entryValue2 = StringVar()
-                self.entry2 = Entry(f1, width = 15, textvariable = self.entryValue2)
+                self.entry2 = Entry(f2, width = 15, textvariable = self.entryValue2)
                 
                 self.entryValue3 = StringVar()
                 self.entry3 = Entry(f1, width = 15, textvariable = self.entryValue3)
@@ -377,15 +390,14 @@ class btn_3(Toplevel):          #지수 함수 그래프
                 self.entryValue4 = StringVar()
                 self.entry4 = Entry(f1, width = 15, textvariable = self.entryValue4)
                 
-                self.entry1.grid(row = 0, column = 1)
-                self.entry2.grid(row = 1, column = 1)
-                self.entry3.grid(row = 2, column = 1)
-                self.entry4.grid(row = 3, column = 1)
+                self.entry1.grid(row = 1, column = 1, padx = 5)
+                self.entry2.grid(row = 2, column = 1)
+                self.entry3.grid(row = 0, column = 1)
+                self.entry4.grid(row = 1, column = 1)
                 
                 btn = Button(self, text = '그래프 출력',
                         font = ("맑은 고딕", "10", 'bold'),
                         fg = "#087666",
-                        width = 15, height = 2,
                         bg = '#b4dede',
                         relief = SOLID, command = self.draw)
                 btn.pack(ipadx = 5, ipady = 5, pady=5)
@@ -427,7 +439,6 @@ class btn_3(Toplevel):          #지수 함수 그래프
                 
             self.graph_log(front,under,xmin,xmax)
             
-
 class btn_4(Toplevel):
         def __init__(self):
                 Toplevel.__init__(self)
@@ -442,6 +453,8 @@ class btn_4(Toplevel):
                               foreground = '#087666',
                               background = 'white')
                 title.pack()
+
+                Frame(self, bg = '#087666', width = 200, height = 3).pack(pady = 10)
                 
                 f1 = Frame(self, bg = 'white')
                 f1.pack(pady = 5)
@@ -565,6 +578,8 @@ class btn_5(Toplevel):          #두 점 사이의 거리
                               foreground = '#087666',
                               background = 'white')
                 title.pack()
+
+                Frame(self, bg = '#087666', width = 200, height = 3).pack(pady = 10)
 
                 f1 = Frame(self, bg = 'white')
                 f1.pack(pady = 5)
