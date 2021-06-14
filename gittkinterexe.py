@@ -336,7 +336,7 @@ class btn_2(Toplevel):          #빗변의 길이
         def Calculate(self):
            a=float(self.entryValue1.get())
            b=float(self.entryValue2.get())
-           c=(a*a)+(b*b) 
+           c=((a*a)+(b*b))**0.5 
            
            result = "빗변의 길이는 %.2f 입니다"%c
            self.resultValue.set(result)
